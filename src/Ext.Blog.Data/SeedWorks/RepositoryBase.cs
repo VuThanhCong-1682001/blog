@@ -6,9 +6,11 @@ namespace Ext.Blog.Data.SeedWorks
 {
     public class RepositoryBase<T, Key> : IRepository<T, Key> where T : class
     {
+        protected readonly ExtBlogDbContext _context;
         private readonly DbSet<T> _dbSet;
         public RepositoryBase(ExtBlogDbContext context)
         {
+            _context = context;
             _dbSet = context.Set<T>();
         }
         public void Add(T entity)
