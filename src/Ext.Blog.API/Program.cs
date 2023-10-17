@@ -1,3 +1,4 @@
+using Ext.Blog.API.Configurations;
 using Ext.Blog.Core.Domain.Identity;
 using Ext.Blog.Data;
 using Microsoft.AspNetCore.Identity;
@@ -54,5 +55,8 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+// Seeding data
+app.MigrateDatabase();
 
 app.Run();
