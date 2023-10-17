@@ -1,6 +1,8 @@
 using Ext.Blog.API.Configurations;
 using Ext.Blog.Core.Domain.Identity;
+using Ext.Blog.Core.SeedWorks;
 using Ext.Blog.Data;
+using Ext.Blog.Data.SeedWorks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -37,6 +39,9 @@ builder.Services.Configure<IdentityOptions>(options =>
 });
 
 // Add services to the container.
+builder.Services.AddScoped(typeof(IRepository<,>), typeof(RepositoryBase<,>));
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
