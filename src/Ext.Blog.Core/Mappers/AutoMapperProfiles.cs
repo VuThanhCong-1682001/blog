@@ -9,6 +9,7 @@ namespace Ext.Blog.Core.Models.Content
         {
             CreateMap<Post, PostDto>();
             CreateMap<Post, PostInListDto>();
+            CreateMap<UpsertPostRequest, Post>();
         }
     }
 }

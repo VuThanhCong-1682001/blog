@@ -1,7 +1,10 @@
-﻿namespace Ext.Blog.Core.SeedWorks
+﻿using Ext.Blog.Core.Repositories;
+
+namespace Ext.Blog.Core.SeedWorks
 {
     public interface IUnitOfWork
     {
         Task<int> CompleteAsync();
+        IPostRepository Posts { get; }
     }
 }
