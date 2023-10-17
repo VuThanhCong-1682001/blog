@@ -1,5 +1,6 @@
 using Ext.Blog.API.Configurations;
 using Ext.Blog.Core.Domain.Identity;
+using Ext.Blog.Core.Models.Content;
 using Ext.Blog.Core.Repositories;
 using Ext.Blog.Core.SeedWorks;
 using Ext.Blog.Data;
@@ -58,6 +59,8 @@ foreach (var service in services)
         builder.Services.Add(new ServiceDescriptor(directInterface, service, ServiceLifetime.Scoped));
     }
 }
+
+builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
