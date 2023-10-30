@@ -1,4 +1,7 @@
+using Ext.Blog.API;
 using Ext.Blog.API.Configurations;
+using Ext.Blog.API.Services;
+using Ext.Blog.Core.ConfigOptions;
 using Ext.Blog.Core.Domain.Identity;
 using Ext.Blog.Core.Models.Content;
 using Ext.Blog.Core.Repositories;
@@ -64,6 +67,13 @@ foreach (var service in services)
 
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 
+//Authen and author
+builder.Services.Configure<JwtTokenSettings>(configuration.GetSection("JwtTokenSettings"));
+builder.Services.AddScoped<SignInManager<AppUser>, SignInManager<AppUser>>();
+builder.Services.AddScoped<UserManager<AppUser>, UserManager<AppUser>>();
+builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<RoleManager<AppRole>, RoleManager<AppRole>>();
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
@@ -78,6 +88,7 @@ builder.Services.AddSwaggerGen(c =>
         Title = "API for Administrators",
         Description = "API for CMS core domain. This domain keeps track of campaigns, campaign rules, and campaign execution."
     });
+    c.ParameterFilter<SwaggerNullableParameterFilter>();
 });
 
 var app = builder.Build();
