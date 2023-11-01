@@ -15,6 +15,9 @@ import { AppComponent } from './app.component';
 // Import containers
 import { DefaultFooterComponent, DefaultHeaderComponent, DefaultLayoutComponent } from './containers';
 
+import { ADMIN_API_BASE_URL } from './api/admin-api.service.generated';
+import { environment } from './../environments/environment';
+
 import {
   AvatarModule,
   BadgeModule,
@@ -75,6 +78,10 @@ const APP_CONTAINERS = [
     NgScrollbarModule
   ],
   providers: [
+    {
+      provide: ADMIN_API_BASE_URL,
+      useValue: environment.API_URL 
+    },
     {
       provide: LocationStrategy,
       useClass: HashLocationStrategy
