@@ -1,10 +1,9 @@
-using Ext.Blog.API;
 using Ext.Blog.API.Configurations;
+using Ext.Blog.API.Filters;
 using Ext.Blog.API.Services;
 using Ext.Blog.Core.ConfigOptions;
 using Ext.Blog.Core.Domain.Identity;
 using Ext.Blog.Core.Models.Content;
-using Ext.Blog.Core.Repositories;
 using Ext.Blog.Core.SeedWorks;
 using Ext.Blog.Data;
 using Ext.Blog.Data.Repositories;
@@ -17,6 +16,15 @@ using System.Reflection;
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 var connectionString = configuration.GetConnectionString("DefaultConnection");
+var ExtCorsPolicy = "ExtCorsPolicy";
+
+builder.Services.AddCors(o => o.AddPolicy(ExtCorsPolicy, builder =>
+{
+    builder.AllowAnyMethod()
+        .AllowAnyHeader()
+        .WithOrigins(configuration["AllowedOrigins"])
+        .AllowCredentials();
+}));
 
 //Config DB Context and ASP.NET Core Identity
 builder.Services.AddDbContext<ExtBlogDbContext>(options =>
@@ -104,6 +112,8 @@ if (app.Environment.IsDevelopment())
         c.DisplayRequestDuration();
     });
 }
+
+app.UseCors(ExtCorsPolicy);
 
 app.UseHttpsRedirection();
 
