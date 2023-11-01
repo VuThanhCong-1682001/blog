@@ -4,11 +4,13 @@ using Ext.Blog.Core.Models.Content;
 using Ext.Blog.Core.Models;
 using Ext.Blog.Core.SeedWorks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Ext.Blog.API.Controllers.AdminApis
 {
     [Route("api/admin/post")]
     [ApiController]
+    [Authorize]
     public class PostsController : ControllerBase
     {
         private readonly IUnitOfWork _unitOfWork;
