@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormControl,
@@ -14,14 +14,17 @@ import {
 import { AlertService } from 'src/app/shared/services/alert.service';
 import { UrlConstants } from 'src/app/shared/constants/url.constants';
 import { TokenStorageService } from 'src/app/shared/services/token-storage.service';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnDestroy {
   loginForm: FormGroup;
+  loading: boolean = false;
+  private ngUnsubscribe = new Subject<void>();
 
   constructor(
     private fb: FormBuilder,
@@ -36,8 +39,14 @@ export class LoginComponent {
     });
   }
 
+  ngOnDestroy(): void {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+  }
+
   login() {
-    var request: LoginRequest = new LoginRequest({
+    this.loading = true;
+    let request: LoginRequest = new LoginRequest({
       userName: this.loginForm.controls['userName'].value,
       password: this.loginForm.controls['password'].value,
     });
@@ -53,6 +62,7 @@ export class LoginComponent {
       },
       error: (error: any) => {
         console.log(error);
+        this.loading = false;
         this.alertService.showError('Đăng nhập thất bại.');
       },
     });
