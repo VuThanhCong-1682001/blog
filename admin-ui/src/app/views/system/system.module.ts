@@ -6,10 +6,13 @@ import { BlockUIModule } from 'primeng/blockui';
 import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
+import { KeyFilterModule } from 'primeng/keyfilter';
 import { PaginatorModule } from 'primeng/paginator';
 import { PanelModule } from 'primeng/panel';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { TableModule } from 'primeng/table';
+import { ExtSharedModule } from './../../shared/modules/ext-shared.module';
+import { RoleDetailsComponent } from './roles/role-details/role-details.component';
 import { RoleComponent } from './roles/role.component';
 import { SystemRoutingModule } from './system-routing.module';
 import { UserComponent } from './users/user.component';
@@ -27,9 +30,11 @@ import { UserComponent } from './users/user.component';
     CheckboxModule,
     ButtonModule,
     InputTextModule,
-    SharedModule
+    KeyFilterModule,
+    SharedModule,
+    ExtSharedModule
   ],
-  declarations: [UserComponent, RoleComponent]
+  declarations: [UserComponent, RoleComponent, RoleDetailsComponent]
 })
 export class SystemModule {
 }

@@ -45,12 +45,14 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ToastModule } from 'primeng/toast';
 
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { DialogService } from 'primeng/dynamicdialog';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
 import { AuthGuard } from './shared/auth.guard';
 import { GlobalHttpInterceptorService } from './shared/interceptors/error-handler.interceptor';
 import { TokenInterceptor } from './shared/interceptors/token.interceptor';
 import { AlertService } from './shared/services/alert.service';
 import { TokenStorageService } from './shared/services/token-storage.service';
+import { UtilityService } from './shared/services/utility.service';
 
 const APP_CONTAINERS = [
   DefaultFooterComponent,
@@ -88,7 +90,9 @@ const APP_CONTAINERS = [
     CardModule,
     NgScrollbarModule,
     ToastModule,
-    HttpClientModule
+    ConfirmDialogModule,
+    HttpClientModule,
+    DynamicDialogModule
   ],
   providers: [
     {
@@ -114,6 +118,7 @@ const APP_CONTAINERS = [
     MessageService,
     AlertService,
     DialogService,
+    UtilityService,
     ConfirmationService,
     TokenStorageService,
     AuthGuard,
