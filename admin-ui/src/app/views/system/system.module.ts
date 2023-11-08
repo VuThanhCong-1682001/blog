@@ -16,6 +16,7 @@ import { RoleDetailsComponent } from './roles/role-details/role-details.componen
 import { RoleComponent } from './roles/role.component';
 import { SystemRoutingModule } from './system-routing.module';
 import { UserComponent } from './users/user.component';
+import { PermissionGrantComponent } from './roles/permission-grant/permission-grant.component';
 
 @NgModule({
   imports: [
@@ -34,7 +35,7 @@ import { UserComponent } from './users/user.component';
     SharedModule,
     ExtSharedModule
   ],
-  declarations: [UserComponent, RoleComponent, RoleDetailsComponent]
+  declarations: [UserComponent, RoleComponent, RoleDetailsComponent, PermissionGrantComponent]
 })
 export class SystemModule {
 }

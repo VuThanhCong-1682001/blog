@@ -10,6 +10,7 @@ import {
 import { AlertService } from 'src/app/shared/services/alert.service';
 import { RoleDetailsComponent } from './role-details/role-details.component';
 import { MessageConstants } from '../../../shared/constants/messages.constant';
+import { PermissionGrantComponent } from './permission-grant/permission-grant.component';
 
 @Component({
   selector: 'app-role',
@@ -80,7 +81,28 @@ export class RoleComponent implements OnInit, OnDestroy {
     }
   }
 
-  showPermissionModal(id: string, name: string) {}
+  showPermissionModal(id: string, name: string) {
+    const ref = this.dialogService.open(PermissionGrantComponent, {
+      data: {
+          id: id,
+      },
+      header: name,
+      width: '70%',
+    });
+    const dialogRef = this.dialogService.dialogComponentRefMap.get(ref);
+    const dynamicComponent = dialogRef?.instance as DynamicDialogComponent;
+    const ariaLabelledBy = dynamicComponent.getAriaLabelledBy();
+    dynamicComponent.getAriaLabelledBy = () => ariaLabelledBy;
+    ref.onClose.subscribe((data: RoleDto) => {
+        if (data) {
+            this.alertService.showSuccess(
+                MessageConstants.UPDATED_OK_MSG
+            );
+            this.selectedItems = [];
+            this.loadData();
+        }
+    });
+  }
 
   showEditModal() {
     if (this.selectedItems.length == 0) {
