@@ -1,8 +1,8 @@
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { HashLocationStrategy, LocationStrategy, PathLocationStrategy } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule, Title } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
 
 import { NgScrollbarModule } from 'ngx-scrollbar';
 
@@ -15,8 +15,8 @@ import { AppComponent } from './app.component';
 // Import containers
 import { DefaultFooterComponent, DefaultHeaderComponent, DefaultLayoutComponent } from './containers';
 
-import { ADMIN_API_BASE_URL, AdminApiAuthsApiClient, AdminApiPostsApiClient, AdminApiTokenApiClient } from './api/admin-api.service.generated';
 import { environment } from './../environments/environment';
+import { ADMIN_API_BASE_URL, AdminApiAuthsApiClient, AdminApiPostsApiClient, AdminApiRolesApiClient, AdminApiTokenApiClient } from './api/admin-api.service.generated';
 
 import {
   AvatarModule,
@@ -41,15 +41,18 @@ import {
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
 
-import { ToastModule } from 'primeng/toast';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ToastModule } from 'primeng/toast';
 
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { DialogService, DynamicDialogModule } from 'primeng/dynamicdialog';
+import { AuthGuard } from './shared/auth.guard';
+import { GlobalHttpInterceptorService } from './shared/interceptors/error-handler.interceptor';
+import { TokenInterceptor } from './shared/interceptors/token.interceptor';
 import { AlertService } from './shared/services/alert.service';
 import { TokenStorageService } from './shared/services/token-storage.service';
-import { AuthGuard } from './shared/auth.guard';
-import { TokenInterceptor } from './shared/interceptors/token.interceptor';
-import { GlobalHttpInterceptorService } from './shared/interceptors/error-handler.interceptor';
+import { UtilityService } from './shared/services/utility.service';
 
 const APP_CONTAINERS = [
   DefaultFooterComponent,
@@ -87,7 +90,9 @@ const APP_CONTAINERS = [
     CardModule,
     NgScrollbarModule,
     ToastModule,
-    HttpClientModule
+    ConfirmDialogModule,
+    HttpClientModule,
+    DynamicDialogModule
   ],
   providers: [
     {
@@ -112,11 +117,15 @@ const APP_CONTAINERS = [
     Title,
     MessageService,
     AlertService,
+    DialogService,
+    UtilityService,
+    ConfirmationService,
     TokenStorageService,
     AuthGuard,
     AdminApiAuthsApiClient,
     AdminApiPostsApiClient,
-    AdminApiTokenApiClient
+    AdminApiTokenApiClient,
+    AdminApiRolesApiClient 
   ],
   bootstrap: [AppComponent]
 })

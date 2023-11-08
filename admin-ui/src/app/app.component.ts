@@ -8,7 +8,13 @@ import { Title } from '@angular/platform-browser';
 @Component({
   selector: 'app-root',
   template: `
-    <p-toast position="bottom-center" key="bc"></p-toast>
+    <p-toast position="top-center"></p-toast>
+    <p-confirmDialog
+      header="Xác nhận"
+      acceptLabel="Có"
+      rejectLabel="Không"
+      icon="pi pi-exclamation-triangle"
+    ></p-confirmDialog>
     <router-outlet></router-outlet>
   `,
 })

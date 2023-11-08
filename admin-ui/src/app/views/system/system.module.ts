@@ -1,45 +1,41 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-
-import {
-  AvatarModule,
-  ButtonGroupModule,
-  ButtonModule,
-  CardModule,
-  FormModule,
-  GridModule,
-  NavModule,
-  ProgressModule,
-  TableModule,
-  TabsModule
-} from '@coreui/angular';
-import { IconModule } from '@coreui/icons-angular';
-import { ChartjsModule } from '@coreui/angular-chartjs';
+import { SharedModule } from 'primeng/api';
+import { BlockUIModule } from 'primeng/blockui';
+import { ButtonModule } from 'primeng/button';
+import { CheckboxModule } from 'primeng/checkbox';
+import { InputTextModule } from 'primeng/inputtext';
+import { KeyFilterModule } from 'primeng/keyfilter';
+import { PaginatorModule } from 'primeng/paginator';
+import { PanelModule } from 'primeng/panel';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { TableModule } from 'primeng/table';
+import { ExtSharedModule } from './../../shared/modules/ext-shared.module';
+import { RoleDetailsComponent } from './roles/role-details/role-details.component';
+import { RoleComponent } from './roles/role.component';
 import { SystemRoutingModule } from './system-routing.module';
-
-import { UserComponent } from "./users/user.component"
+import { UserComponent } from './users/user.component';
+import { PermissionGrantComponent } from './roles/permission-grant/permission-grant.component';
 
 @NgModule({
   imports: [
     SystemRoutingModule,
-    CardModule,
-    NavModule,
-    IconModule,
-    TabsModule,
     CommonModule,
-    GridModule,
-    ProgressModule,
     ReactiveFormsModule,
-    ButtonModule,
-    FormModule,
-    ButtonModule,
-    ButtonGroupModule,
-    ChartjsModule,
-    AvatarModule,
     TableModule,
+    ProgressSpinnerModule,
+    BlockUIModule,
+    PaginatorModule,
+    PanelModule,
+    CheckboxModule,
+    ButtonModule,
+    InputTextModule,
+    KeyFilterModule,
+    SharedModule,
+    ExtSharedModule
   ],
-  declarations: [UserComponent]
+  declarations: [UserComponent, RoleComponent, RoleDetailsComponent, PermissionGrantComponent]
 })
 export class SystemModule {
 }

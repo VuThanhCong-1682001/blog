@@ -1,3 +1,4 @@
+using Ext.Blog.API.Authorizations;
 using Ext.Blog.API.Configurations;
 using Ext.Blog.API.Filters;
 using Ext.Blog.API.Services;
@@ -9,6 +10,7 @@ using Ext.Blog.Data;
 using Ext.Blog.Data.Repositories;
 using Ext.Blog.Data.SeedWorks;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -20,6 +22,9 @@ var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 var connectionString = configuration.GetConnectionString("DefaultConnection");
 var ExtCorsPolicy = "ExtCorsPolicy";
+
+builder.Services.AddSingleton<IAuthorizationPolicyProvider, PermissionPolicyProvider>();
+builder.Services.AddScoped<IAuthorizationHandler, PermissionAuthorizationHandler>();
 
 builder.Services.AddCors(o => o.AddPolicy(ExtCorsPolicy, builder =>
 {
