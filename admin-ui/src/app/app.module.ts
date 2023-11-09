@@ -16,7 +16,7 @@ import { AppComponent } from './app.component';
 import { DefaultFooterComponent, DefaultHeaderComponent, DefaultLayoutComponent } from './containers';
 
 import { environment } from './../environments/environment';
-import { ADMIN_API_BASE_URL, AdminApiAuthsApiClient, AdminApiPostsApiClient, AdminApiRolesApiClient, AdminApiTokenApiClient } from './api/admin-api.service.generated';
+import { ADMIN_API_BASE_URL, AdminApiAuthsApiClient, AdminApiPostsApiClient, AdminApiRolesApiClient, AdminApiTokenApiClient, AdminApiUsersApiClient } from './api/admin-api.service.generated';
 
 import {
   AvatarModule,
@@ -125,7 +125,8 @@ const APP_CONTAINERS = [
     AdminApiAuthsApiClient,
     AdminApiPostsApiClient,
     AdminApiTokenApiClient,
-    AdminApiRolesApiClient 
+    AdminApiRolesApiClient,
+    AdminApiUsersApiClient
   ],
   bootstrap: [AppComponent]
 })

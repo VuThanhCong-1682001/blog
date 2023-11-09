@@ -1,4 +1,4 @@
-﻿namespace Ext.Blog.Core.Models.System;
+﻿namespace Ext.Blog.Core.Models.System.Role;
 
 public class CreateUpdateRoleRequest
 {
