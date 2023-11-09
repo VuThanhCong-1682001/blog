@@ -1,5 +1,5 @@
 ﻿using Ext.Blog.Core.Domain.Identity;
-using Ext.Blog.Core.Models.System;
+using Ext.Blog.Core.Models.System.Role;
 using Microsoft.AspNetCore.Identity;
 using System.ComponentModel;
 using System.Reflection;

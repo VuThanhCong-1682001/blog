@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Ext.Blog.Core.Domain.Identity;
 
-namespace Ext.Blog.Core.Models.System;
+namespace Ext.Blog.Core.Models.System.Role;
 
 public class RoleDto
 {
