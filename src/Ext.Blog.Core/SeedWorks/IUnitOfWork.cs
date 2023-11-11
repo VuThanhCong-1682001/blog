@@ -6,5 +6,6 @@ namespace Ext.Blog.Core.SeedWorks
     {
         Task<int> CompleteAsync();
         IPostRepository Posts { get; }
+        IPostCategoryRepository PostCategories { get; }
     }
 }
