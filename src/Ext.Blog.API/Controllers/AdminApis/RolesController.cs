@@ -3,7 +3,7 @@ using Ext.Blog.API.Extensions;
 using Ext.Blog.API.Filters;
 using Ext.Blog.Core.Domain.Identity;
 using Ext.Blog.Core.Models;
-using Ext.Blog.Core.Models.System;
+using Ext.Blog.Core.Models.System.Role;
 using Ext.Blog.Core.SeedWorks.Constants;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
