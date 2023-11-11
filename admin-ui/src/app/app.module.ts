@@ -13,10 +13,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 // Import containers
-import { DefaultFooterComponent, DefaultHeaderComponent, DefaultLayoutComponent } from './containers';
+import {
+  DefaultFooterComponent,
+  DefaultHeaderComponent,
+  DefaultLayoutComponent,
+} from './containers';
 
 import { environment } from './../environments/environment';
-import { ADMIN_API_BASE_URL, AdminApiAuthsApiClient, AdminApiPostsApiClient, AdminApiRolesApiClient, AdminApiTokenApiClient, AdminApiUsersApiClient } from './api/admin-api.service.generated';
+import {
+  ADMIN_API_BASE_URL,
+  AdminApiAuthsApiClient,
+  AdminApiPostCategoriesApiClient,
+  AdminApiPostsApiClient,
+  AdminApiRolesApiClient,
+  AdminApiTokenApiClient,
+  AdminApiUsersApiClient,
+} from './api/admin-api.service.generated';
 
 import {
   AvatarModule,
@@ -36,7 +48,7 @@ import {
   SharedModule,
   SidebarModule,
   TabsModule,
-  UtilitiesModule
+  UtilitiesModule,
 } from '@coreui/angular';
 
 import { IconModule, IconSetService } from '@coreui/icons-angular';
@@ -57,7 +69,7 @@ import { UtilityService } from './shared/services/utility.service';
 const APP_CONTAINERS = [
   DefaultFooterComponent,
   DefaultHeaderComponent,
-  DefaultLayoutComponent
+  DefaultLayoutComponent,
 ];
 
 @NgModule({
@@ -92,26 +104,26 @@ const APP_CONTAINERS = [
     ToastModule,
     ConfirmDialogModule,
     HttpClientModule,
-    DynamicDialogModule
+    DynamicDialogModule,
   ],
   providers: [
     {
       provide: ADMIN_API_BASE_URL,
-      useValue: environment.API_URL 
+      useValue: environment.API_URL,
     },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
-      multi: true
+      multi: true,
     },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: GlobalHttpInterceptorService,
-      multi: true
+      multi: true,
     },
     {
       provide: LocationStrategy,
-      useClass: HashLocationStrategy
+      useClass: HashLocationStrategy,
     },
     IconSetService,
     Title,
@@ -126,9 +138,9 @@ const APP_CONTAINERS = [
     AdminApiPostsApiClient,
     AdminApiTokenApiClient,
     AdminApiRolesApiClient,
-    AdminApiUsersApiClient
+    AdminApiUsersApiClient,
+    AdminApiPostCategoriesApiClient,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule {
-}
+export class AppModule {}
