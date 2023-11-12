@@ -1,7 +1,7 @@
 ﻿using Ext.Blog.Core.Domain.Content;
-using Ext.Blog.Core.Models.Content;
 using Ext.Blog.Core.Models;
 using Ext.Blog.Core.SeedWorks;
+using Ext.Blog.Core.Models.Content.Posts;
 
 namespace Ext.Blog.Core.Repositories
 {

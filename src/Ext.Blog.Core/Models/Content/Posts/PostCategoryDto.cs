@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Ext.Blog.Core.Domain.Content;
 
-namespace Ext.Blog.Core.Models.Content
+namespace Ext.Blog.Core.Models.Content.Posts
 {
     public class PostCategoryDto
     {

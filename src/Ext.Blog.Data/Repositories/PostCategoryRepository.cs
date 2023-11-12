@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
 using Ext.Blog.Core.Domain.Content;
-using Ext.Blog.Core.Models.Content;
 using Ext.Blog.Core.Models;
 using Ext.Blog.Core.Repositories;
 using Ext.Blog.Data.SeedWorks;
 using Microsoft.EntityFrameworkCore;
+using Ext.Blog.Core.Models.Content.Posts;
 
 namespace Ext.Blog.Data.Repositories
 {

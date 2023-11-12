@@ -1,6 +1,7 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Ext.Blog.Core.Domain.Content;
+using System.ComponentModel.DataAnnotations;
 
-namespace Ext.Blog.Core.Models.Content
+namespace Ext.Blog.Core.Models.Content.Posts
 {
     public class PostInListDto
     {
@@ -18,5 +19,11 @@ namespace Ext.Blog.Core.Models.Content
         public int ViewCount { get; set; }
 
         public DateTime DateCreated { get; set; }
+
+        public required string CategorySlug { set; get; }
+        public required string CategoryName { set; get; }
+        public string AuthorUserName { set; get; }
+        public string AuthorName { set; get; }
+        public PostStatus Status { set; get; }
     }
 }
