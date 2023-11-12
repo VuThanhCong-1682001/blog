@@ -26,6 +26,7 @@ import {
   AdminApiPostCategoriesApiClient,
   AdminApiPostsApiClient,
   AdminApiRolesApiClient,
+  AdminApiSeriesApiClient,
   AdminApiTokenApiClient,
   AdminApiUsersApiClient,
 } from './api/admin-api.service.generated';
@@ -64,6 +65,7 @@ import { GlobalHttpInterceptorService } from './shared/interceptors/error-handle
 import { TokenInterceptor } from './shared/interceptors/token.interceptor';
 import { AlertService } from './shared/services/alert.service';
 import { TokenStorageService } from './shared/services/token-storage.service';
+import { UploadService } from './shared/services/upload.service';
 import { UtilityService } from './shared/services/utility.service';
 
 const APP_CONTAINERS = [
@@ -75,7 +77,7 @@ const APP_CONTAINERS = [
 @NgModule({
   declarations: [AppComponent, ...APP_CONTAINERS],
   imports: [
-    BrowserModule,
+  BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     AvatarModule,
@@ -131,6 +133,7 @@ const APP_CONTAINERS = [
     AlertService,
     DialogService,
     UtilityService,
+    UploadService,
     ConfirmationService,
     TokenStorageService,
     AuthGuard,
@@ -140,6 +143,8 @@ const APP_CONTAINERS = [
     AdminApiRolesApiClient,
     AdminApiUsersApiClient,
     AdminApiPostCategoriesApiClient,
+    AdminApiPostsApiClient,
+    AdminApiSeriesApiClient
   ],
   bootstrap: [AppComponent],
 })

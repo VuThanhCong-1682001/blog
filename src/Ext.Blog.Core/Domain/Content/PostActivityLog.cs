@@ -20,5 +20,8 @@ namespace Ext.Blog.Core.Domain.Content
         public string? Note { set; get; }
 
         public Guid UserId { get; set; }
+
+        [MaxLength(250)]
+        public string UserName { get; set; }
     }
 }

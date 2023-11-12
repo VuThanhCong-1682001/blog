@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Ext.Blog.Core.Models.Content
+namespace Ext.Blog.Core.Models.Content.Posts
 {
     public class UpsertPostRequest
     {

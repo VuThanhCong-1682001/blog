@@ -21,4 +21,8 @@
     <ProjectReference Include="..\Ext.Blog.Data\Ext.Blog.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
 </Project>
