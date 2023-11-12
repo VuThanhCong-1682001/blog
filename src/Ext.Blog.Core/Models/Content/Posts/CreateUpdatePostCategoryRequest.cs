@@ -3,7 +3,7 @@ using Ext.Blog.Core.Domain.Content;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace Ext.Blog.Core.Models.Content
+namespace Ext.Blog.Core.Models.Content.Posts
 {
     public class CreateUpdatePostCategoryRequest
     {

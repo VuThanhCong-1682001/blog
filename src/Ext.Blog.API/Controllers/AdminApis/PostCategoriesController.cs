@@ -2,10 +2,10 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Ext.Blog.Core.Domain.Content;
-using Ext.Blog.Core.Models.Content;
 using Ext.Blog.Core.Models;
 using Ext.Blog.Core.SeedWorks;
 using static Ext.Blog.Core.SeedWorks.Constants.Permissions;
+using Ext.Blog.Core.Models.Content.Posts;
 
 namespace TeduBlog.Api.Controllers.AdminApi
 {
