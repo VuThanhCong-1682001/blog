@@ -14,7 +14,6 @@ import { AlertService } from 'src/app/shared/services/alert.service';
 @Component({
   selector: 'app-post-category',
   templateUrl: './post-category.component.html',
-  styleUrls: ['./post-category.component.scss'],
 })
 export class PostCategoryComponent implements OnInit, OnDestroy {
   //System variables
